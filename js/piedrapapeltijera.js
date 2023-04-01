@@ -69,7 +69,7 @@ let movimiento = ["Piedra","Papel","Tijera"]
 function opcion(){
     let btn = document.querySelectorAll(".decision");
     btn.forEach(function(i){
-        i.addEventListener("click",function(e){
+        i.addEventListener("click",function(){
             console.log(this.innerHTML);
         })
     })
