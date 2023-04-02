@@ -1,77 +1,67 @@
-let movimiento = ["Piedra","Papel","Tijera"]
+const piedra = 0;
+const papel = 1;
+const tijera = 2;
 
 
-    let jugador = opcion()
-    let computadora = Math.floor(Math.random()*movimiento.length)
-        console.log(computadora);
-        switch(jugador)
-        {
-            case (jugador === "Tijera"):
-            if(jugador === "Tijera" && computadora===2)
-            {
-                alert("El jugador eligió Piedra")
-                alert(`La computadora eligió ${movimiento[computadora]}`)
-                alert("El jugador Gana");
-            }
-            else if(computadora===1)
-            {
-                alert("El jugador eligió Piedra")
-                alert(`La computadora eligió ${movimiento[computadora]}`)
-                alert("La Computadora Gana");
-            }
-            else{
-                alert("El jugador eligió Piedra")
-                alert(`La computadora eligió ${movimiento[computadora]}`)
-                alert("El Jugador y La Computadora empataron");
-            }
-            break
-            case 2:
-            if(jugador===2 && computadora===0)
-            {
-                alert("El jugador eligió Papel")
-                alert(`La computadora eligió ${movimiento[computadora]}`)
-                alert("El jugador Gana");
-            }
-            else if(computadora===2)
-            {
-                alert("El jugador eligió Papel")
-                alert(`La computadora eligió ${movimiento[computadora]}`)
-                alert("La Computadora Gana");
-            }
-            else{
-                alert("El jugador eligió Papel")
-                alert(`La computadora eligió ${movimiento[computadora]}`)
-                alert("El Jugador y La Computadora empataron");
-            }
-            break
-            case 3:
-            if(jugador===3 && computadora===1)
-            {
-                alert("El jugador eligió Tijera")
-                alert(`La computadora eligió ${movimiento[computadora]}`)
-                alert("El jugador Gana");
-            }
-            else if(computadora===0)
-            {
-                alert("El jugador eligió Tijera")
-                alert(`La computadora eligió ${movimiento[computadora]}`)
-                alert("La Computadora Gana");
-            }
-            else{
-                alert("El jugador eligió Tijera")
-                alert(`La computadora eligió ${movimiento[computadora]}`)
-                alert("El Jugador y La Computadora empataron");
-            }
-            break
+const btnPiedra = document.getElementById("piedra")
+const btnPapel = document.getElementById("papel")
+const btnTijera = document.getElementById("tijera")
+
+btnPiedra.addEventListener('click',()=>
+{
+    jugar(piedra);
+});
+
+btnPapel.addEventListener('click',()=>
+{
+    jugar(papel);
+});
+
+btnTijera.addEventListener('click',()=>
+{
+    jugar(tijera);
+});
+
+function jugar(eleccion){
+    const cpu = Math.floor(Math.random() * 3);
+    console.log(cpu);
+
+    if(eleccion === piedra && cpu === tijera)
+    {
+        console.log("El jugador Gana");
+    }
+    else if(eleccion === piedra && cpu === papel)
+    {
+        console.log("La computadora gana");
+    }
+    else if(eleccion === piedra && cpu === piedra)
+    {
+        console.log("Empate");
     }
 
+    if(eleccion === papel && cpu === piedra)
+    {
+        console.log("El jugador Gana");
+    }
+    else if(eleccion === papel && cpu === tijera)
+    {
+        console.log("La computadora gana");
+    }
+    else if(eleccion === papel && cpu === papel)
+    {
+        console.log("Empate");
+    }
 
-function opcion(){
-    let btn = document.querySelectorAll(".decision");
-    btn.forEach(function(i){
-        i.addEventListener("click",function(){
-            console.log(this.innerHTML);
-        })
-    })
-    //console.log(opc);
+    if(eleccion === tijera && cpu === papel)
+    {
+        console.log("El jugador Gana");
+    }
+    else if(eleccion === tijera && cpu === piedra)
+    {
+        console.log("La computadora gana");
+    }
+    else if(eleccion === tijera && cpu === tijera)
+    {
+        console.log("Empate");
+    }
 }
